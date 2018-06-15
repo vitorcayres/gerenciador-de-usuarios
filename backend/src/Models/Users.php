@@ -5,21 +5,45 @@ use Illuminate\Database\Eloquent\Model;
  
 class Users extends Model{
 
-   protected $table = 'user';
+    protected $table = 'user';
 
-   public function getUsersAll()
-   {
-       return Users::all();
-   }
+    /**
+     * Listagem dos usuarios
+     */
+    public function listing(){
+        return Users::get();
+    }
 
-   public function getUserById($id)
-   {
-       return Users::find($id);
-   }
+    /**
+     * Inserção dos usuarios
+     */
+    public function add(array $body){
+        return Users::insertGetId($body);
+    }
+    
+    /**
+     * Listagem dos usuarios por ID
+     */
+    public function listingById($id){
+       return Users::where('id', $id)
+       ->first();
+    }
 
-   public function getUserByName($username){
-       return Users::where('username', $username)->first();
-   }
+    /**
+     * Editar usuarios por ID
+     */
+    public function edit($id, array $body){
+        return Users::where('id', $id)
+        ->update($body);
+    }
+    
+    /**
+     * Excluir usuarios por ID
+     */
+    public function remove($id){
+        return Users::where('id', $id)
+        ->delete();
+    }
+
 }
-
 ?>
