@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Slim\Exception\NotFoundException;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use Firebase\JWT\JWT;
 use App\Models\Auth;
 
 class Authentication
@@ -20,17 +21,28 @@ class Authentication
 
         if(!empty($params)) {
             
+            $error = [];
             foreach ($params as $k => $v) {
                 if($v == ''){
-                    return $response->withJson(['status' => 'error', 'message' => 'O parâmetro '. $k .' é obrigatório. '], 401)
-                    ->withHeader('Content-type', 'application/json');
+                    $error[] = ['status' => 'error', 'message' => 'O parâmetro '. $k .' é obrigatório'];
                 }
             }
 
-            $rows = Auth::getUserByName($params['username']);
+            if(count($error) > 0 ){
+                return $response->withJson($error, 401)
+                ->withHeader('Content-type', 'application/json');                      
+            } 
+    
+            $res = Auth::getUserByName($params);
 
-            if(!empty($rows)){
-                print_r($rows);
+            if(!empty($res)){
+ 
+                $key = $this->container->get("secretkey");
+                $jwt = JWT::encode($res, $key);
+
+                return $response->withJson(['status' => 'success', "token" => $jwt], 200)
+                ->withHeader('Content-type', 'application/json');   
+ 
             }else{
                 return $response->withJson(['status' => 'error', 'message' => 'Usuário não encontrado!'], 401)
                 ->withHeader('Content-type', 'application/json');                

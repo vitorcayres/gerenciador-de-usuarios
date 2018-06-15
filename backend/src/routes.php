@@ -1,9 +1,5 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
-use Firebase\JWT\JWT;
-
 // Routes
 
 # Autenticação
