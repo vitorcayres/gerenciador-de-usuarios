@@ -1,8 +1,8 @@
 <?php
 namespace App\Models;
- 
+
 use Illuminate\Database\Eloquent\Model;
- 
+
 class Users extends Model{
 
     protected $table = 'user';
@@ -32,9 +32,16 @@ class Users extends Model{
     /**
      * Editar usuarios por ID
      */
-    public function edit($id, array $body){
-        return Users::where('id', $id)
-        ->update($body);
+    public function edit($id, $paramsDB){
+
+        $returnDB = Users::find($id);
+        $returnDB['name'] = 'Chora';
+        $returnDB->save();
+
+
+        // return Users::where('id', $id)
+        // ->update($body);
+        #UPDATE `user` SET `name` = 'Vitor dos Santos Cayres' WHERE `user`.`id` = 168;
     }
     
     /**

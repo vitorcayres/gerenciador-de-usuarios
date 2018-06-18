@@ -24,3 +24,7 @@ $container['db'] = function ($container) {
 
     return $capsule;
 };
+
+$container['validator'] = function () {
+    return new Awurth\SlimValidation\Validator();
+};
