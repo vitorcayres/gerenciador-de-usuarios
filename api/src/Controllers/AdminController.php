@@ -8,9 +8,10 @@ use Respect\Validation\Validator as Validation;
 
 class AdminController
 {
-    public function __construct($container, $model){
+    public function __construct($container, $model, $permission){
         $this->container = $container;
         $this->model     = $model;
+        $this->permission = $permission;
     }    
 
     public function execute(Request $request, Response $response, $args){
@@ -28,7 +29,7 @@ class AdminController
 
                 if(!empty($request->getParams())){
 
-                    $rows = (object) $this->validate($request);
+                    $rows = (object) $this->validate($request, $this->permission);
 
                     switch ($rows->status) {
                         case 'success':
@@ -48,7 +49,7 @@ class AdminController
             case 'PUT':
                 if(!empty($request->getParams())){
 
-                    $rows = (object) $this->validate($request);
+                    $rows = (object) $this->validate($request, $this->permission);
 
                     switch ($rows->status) {
                         case 'success':
@@ -77,38 +78,9 @@ class AdminController
     /**
     * Função de validação do body na requesição
     */
-    private function validate($request){
+    private function validate($request, $permission){
 
-        $validator =  $this->container->validator->validate($request, [
-            'username' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],
-            'password' => [
-                'rules' => Validation::length(8),
-                'message' => 'Este campo é obrigatório!'
-            ],
-            'name' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],
-            'usergroup_id' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],
-            'superuser' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],
-            'workplace_id' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],
-            'enabled' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],                                                                             
-        ]);
+        $validator =  $this->container->validator->validate($request, $permission);
 
         if ($validator->isValid()){  
             return ['status' => 'success'];

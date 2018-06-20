@@ -10,30 +10,14 @@ class Workplace extends Model{
     /**
      * Listagem dos usuarios
      */
-    public function listing(){
+    public function list($id){
 
-        $list = Users::get();
-
-        $list = [];
+        $list = (!empty($id))? Workplace::where('id', $id)->first() : Workplace::get();
 
         if(!empty($list)){
             return json_encode(['status' => 'success', 'data' => $list]);
         }else{
             return json_encode(['status' => 'error', 'message' => 'Listagem não encontrada!']);
-        }
-    }
-
-    /**
-     * Listagem dos usuarios por ID
-     */
-    public function listById($id){
-
-        $listById = Users::where('id', $id)->first();
-
-        if(!empty($listById)){
-            return json_encode(['status' => 'success', 'data' => $listById]);
-        }else{
-            return json_encode(['status' => 'error', 'message' => 'Usuário não encontrado!']);
         }
     }
 
@@ -44,7 +28,7 @@ class Workplace extends Model{
         $status = false;
 
         try{
-            $add = Users::insertGetId($data);
+            $add = Workplace::insertGetId($data);
             $status = true;
         }
         catch(\Exception $e){
@@ -52,7 +36,7 @@ class Workplace extends Model{
         } 
 
         if($status){
-            return json_encode(['status' => 'success', 'message' => 'Usuário criado com sucesso!']);
+            return json_encode(['status' => 'success', 'message' => 'Empresa criada com sucesso!']);
         }
     }
     
@@ -63,17 +47,12 @@ class Workplace extends Model{
 
         $status = false;
 
-        $update = Users::find($id);
+        $update = Workplace::find($id);
 
         if (!empty($update)) {
             try{
-                $update = Users::find($id);                       
-                $update->username       = $data['username'];
-                $update->password       = md5($data['password']);
-                $update->name           = $data['name'];
-                $update->usergroup_id   = $data['usergroup_id'];                               
-                $update->superuser      = $data['superuser'];
-                $update->workplace_id   = $data['workplace_id'];
+                $update         = Workplace::find($id);
+                $update->name   = $data['name'];
                 $update->save();
                 $status = true;
             }
@@ -82,10 +61,10 @@ class Workplace extends Model{
             } 
 
             if($status){
-                return json_encode(['status' => 'success', 'message' => 'Usuário alterado com sucesso!']);
+                return json_encode(['status' => 'success', 'message' => 'Empresa alterada com sucesso!']);
             }
         }else{
-            return json_encode(['status' => 'error', 'message' => 'Usuário não encontrado!']);
+            return json_encode(['status' => 'error', 'message' => 'Empresa não encontrada!']);
         }
     }
     
@@ -94,14 +73,14 @@ class Workplace extends Model{
      */
     public function remove($id){
 
-        $remove = Users::find($id);
+        $remove = Workplace::find($id);
 
         if(!empty($remove)){
 
             $status = false;
 
             try {
-                $remove = Users::find($id);
+                $remove = Workplace::find($id);
                 $remove->delete();
                 $status = true;
             } catch(\Exception $e){
@@ -109,10 +88,10 @@ class Workplace extends Model{
             } 
 
             if($status){
-                return json_encode(['status' => 'success', 'message' => 'Usuário removido com sucesso!']);
+                return json_encode(['status' => 'success', 'message' => 'Empresa removida com sucesso!']);
             }
         }else{
-            return json_encode(['status' => 'error', 'message' => 'Usuário não encontrado!']);
+            return json_encode(['status' => 'error', 'message' => 'Empresa não encontrada!']);
         }
     }
 }

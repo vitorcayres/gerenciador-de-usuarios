@@ -19,7 +19,5 @@ class Auth extends Model{
 
         return $queryDB;
     }
-
 }
-
 ?>
