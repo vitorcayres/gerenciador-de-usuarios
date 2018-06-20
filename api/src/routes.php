@@ -6,8 +6,6 @@
 $app->post('/auth', App\Controllers\Authentication::class);
 
 # Usuários
-$app->get('/users',                App\Controllers\UsersController::class . ':list');
-$app->get('/users/{id:[0-9]+}',    App\Controllers\UsersController::class . ':listById');
-$app->post('/users',               App\Controllers\UsersController::class . ':add');
-$app->put('/users/{id:[0-9]+}',    App\Controllers\UsersController::class . ':edit');
-$app->delete('/users/{id:[0-9]+}', App\Controllers\UsersController::class . ':remove');
+$app->group('/v1', function () {
+	$this->map(['GET', 'POST', 'PUT', 'DELETE'], '/users[/{id:[0-9]+}]', App\Controllers\UsersController::class . ':execute');
+});

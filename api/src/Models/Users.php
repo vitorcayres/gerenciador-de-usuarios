@@ -10,30 +10,14 @@ class Users extends Model{
     /**
      * Listagem dos usuarios
      */
-    public function listing(){
+    public function list($id){
 
-        $list = Users::get();
-
-        $list = [];
+        $list = (!empty($id))? Users::where('id', $id)->first() : Users::get();
 
         if(!empty($list)){
             return json_encode(['status' => 'success', 'data' => $list]);
         }else{
             return json_encode(['status' => 'error', 'message' => 'Listagem não encontrada!']);
-        }
-    }
-
-    /**
-     * Listagem dos usuarios por ID
-     */
-    public function listById($id){
-
-        $listById = Users::where('id', $id)->first();
-
-        if(!empty($listById)){
-            return json_encode(['status' => 'success', 'data' => $listById]);
-        }else{
-            return json_encode(['status' => 'error', 'message' => 'Usuário não encontrado!']);
         }
     }
 
