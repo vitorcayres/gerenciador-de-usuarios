@@ -1,11 +1,10 @@
 <?php
-// DIC configuration
+# DIC configuration
 
 $container = $app->getContainer();
+$container['secretkey'] = SECRET_KEY;
 
-$container['secretkey'] = "secretloko";
-
-// monolog
+# Logger
 $container['logger'] = function ($c) {
     $settings = $c->get('settings')['logger'];
     $logger = new Monolog\Logger($settings['name']);
@@ -14,7 +13,7 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 	
-// Service factory for the ORM
+# Database
 $container['db'] = function ($container) {
     $capsule = new \Illuminate\Database\Capsule\Manager;
     $capsule->addConnection($container['settings']['db']);
@@ -25,6 +24,7 @@ $container['db'] = function ($container) {
     return $capsule;
 };
 
+# Validator
 $container['validator'] = function () {
     return new Awurth\SlimValidation\Validator();
 };

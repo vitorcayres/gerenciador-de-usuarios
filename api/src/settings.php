@@ -17,12 +17,12 @@ return [
         ],
         'db' => [
             'driver' => 'mysql',
-            'host' => 'localhost',
-            'database' => 'portal_de_operacoes',
-            'username' => 'root',
-            'password' => '',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'host' => HOSTNAME,
+            'database' => DATABASE,
+            'username' => USERNAME,
+            'password' => PASSWORD,
+            'charset'   => CHARSET,
+            'collation' => COLLATION,
             'prefix'    => '',
         ]
     ],

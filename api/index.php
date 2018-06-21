@@ -1,4 +1,5 @@
 <?php
+header("Pragma: no-cache");
 if (PHP_SAPI == 'cli-server') {
     // To help the built-in PHP dev server, check if the request was actually for
     // something which should probably be served as a static file
@@ -9,7 +10,16 @@ if (PHP_SAPI == 'cli-server') {
     }
 }
 
+// Define application environment
+defined('APPLICATION_ENV')
+    || define('APPLICATION_ENV',
+              (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV')
+                                         : 'development'));
+
 require __DIR__ . '/vendor/autoload.php';
+
+// Set up configurations
+require __DIR__ . '/src/constants.php';
 
 session_start();
 

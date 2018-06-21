@@ -3,7 +3,9 @@
 // Routes
 
 # Autenticação
-$app->post('/auth', App\Controllers\Authentication::class);
+$app->group('/v1', function () {
+	$this->post('/auth/login', App\Controllers\AuthenticationController::class);
+});
 
 # Usuários
 $app->group('/v1', function () {

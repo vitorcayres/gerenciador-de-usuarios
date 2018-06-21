@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Firebase\JWT\JWT;
 use App\Models\Auth;
 
-class Authentication
+class AuthenticationController
 {
     public function __construct($container){
         $this->container = $container;
