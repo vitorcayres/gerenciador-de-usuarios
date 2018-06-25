@@ -51,11 +51,13 @@ class UsersController extends AdminController
 
         switch ($rows->status) {
             case 'success':
+                $this->container->logger->info(json_encode($rows));
                 return $response->withJson($rows, 200)
                 ->withHeader('Content-type', 'application/json');
             break;
 
             default:
+                $this->container->logger->error(json_encode($rows));
                 return $response->withJson($rows, 404)
                 ->withHeader('Content-type', 'application/json');  
             break;

@@ -9,12 +9,9 @@ class Auth extends Model{
 
    public function getUserByName(array $params)
    {
-        $username = $params['username'];
-        $password = md5($params['password']);
-
         $queryDB = Auth::where([
-            ['username', $username],
-            ['password', $password],
+            ['username', $params['username']],
+            ['password', md5($params['password'])],
         ])->first(); 
 
         return $queryDB;

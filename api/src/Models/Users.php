@@ -28,7 +28,13 @@ class Users extends Model{
         $status = false;
 
         try{
-            $add = Users::insertGetId($data);
+            $body['username']       = $data['username'];
+            $body['password']       = md5($data['password']);
+            $body['name']           = $data['name'];
+            $body['usergroup_id']   = $data['usergroup_id'];                               
+            $body['superuser']      = $data['superuser'];
+            $body['workplace_id']   = $data['workplace_id'];
+            $add = Users::insertGetId($body);
             $status = true;
         }
         catch(\Exception $e){
