@@ -27,7 +27,8 @@ class UsergroupController extends AdminController
 
     public function execute(Request $request, Response $response, $args){
 
-        $rows = AdminController::execute($request, $response, $args);
+        $methodHttp = $request->getMethod();
+        $rows = AdminController::$methodHttp($request, $response, $args);
 
         switch ($rows->status) {
             case 'success':

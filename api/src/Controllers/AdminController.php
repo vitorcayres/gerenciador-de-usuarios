@@ -14,65 +14,58 @@ class AdminController
         $this->permission = $permission;
     }    
 
-    public function execute(Request $request, Response $response, $args){
+    public function GET(Request $request, Response $response, $args){
+        $id = (!empty($args['id']))? $args['id'] : '';
+        $rows = json_decode($this->model::list($id));
+        return $rows;
+    }
 
-        switch ($request->getMethod()) {
+    public function POST(Request $request, Response $response, $args){
+        $params = $request->getParams();
 
-            case 'GET':
-                $id = (!empty($args['id']))? $args['id'] : '';
-                $rows = json_decode($this->model::list($id));
-                return $rows;
-            break;
+        if(!empty($request->getParams())){
 
-            case 'POST':
-                $params = $request->getParams();
+            $rows = (object) $this->validate($request, $this->permission);
 
-                if(!empty($request->getParams())){
-
-                    $rows = (object) $this->validate($request, $this->permission);
-
-                    switch ($rows->status) {
-                        case 'success':
-                            $rows = json_decode($this->model::add($params));    
-                            return $rows;
-                            break;
-                        
-                        default:
-                            return $rows;
-                            break;
-                    }
-                }else{
-                    return ['status' => 'error', 'message' => 'Requisição invalida!'];                  
-                }
-            break;
-            
-            case 'PUT':
-                if(!empty($request->getParams())){
-
-                    $rows = (object) $this->validate($request, $this->permission);
-
-                    switch ($rows->status) {
-                        case 'success':
-                            $rows = json_decode($this->model::edit($args['id'], $request->getParams()));    
-                            return $rows;
-                            break;
-                        
-                        default:
-                            return $rows;
-                            break;
-                    }
-                }else{
-                    return ['status' => 'error', 'message' => 'Requisição invalida!'];                  
-                }
-            break;
-
-            case 'DELETE':
-                $id = (!empty($args['id']))? $args['id'] : '';
-                $rows = json_decode($this->model::remove($id));
-                return $rows;        
-            break;
-
+            switch ($rows->status) {
+                case 'success':
+                    $rows = json_decode($this->model::add($params));    
+                    return $rows;
+                    break;
+                
+                default:
+                    return $rows;
+                    break;
+            }
+        }else{
+            return ['status' => 'error', 'message' => 'Requisição invalida!'];                  
         }
+    }
+
+    public function PUT(Request $request, Response $response, $args){
+        if(!empty($request->getParams())){
+
+            $rows = (object) $this->validate($request, $this->permission);
+
+            switch ($rows->status) {
+                case 'success':
+                    $rows = json_decode($this->model::edit($args['id'], $request->getParams()));    
+                    return $rows;
+                    break;
+                
+                default:
+                    return $rows;
+                    break;
+            }
+        }else{
+            return ['status' => 'error', 'message' => 'Requisição invalida!'];                  
+        }
+    }
+
+    public function DELETE(Request $request, Response $response, $args){
+        $id = (!empty($args['id']))? $args['id'] : '';
+        $rows = json_decode($this->model::remove($id));
+        return $rows;
     }
 
     /**
