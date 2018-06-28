@@ -19,22 +19,22 @@ defined('APPLICATION_ENV')
 require __DIR__ . '/vendor/autoload.php';
 
 // Set up configurations
-require __DIR__ . '/src/constants.php';
+require __DIR__ . '/src/Configurations/constants.php';
 
 session_start();
 
 // Instantiate the app
-$settings = require __DIR__ . '/src/settings.php';
+$settings = require __DIR__ . '/src/Configurations/settings.php';
 $app = new \Slim\App($settings);
 
 // Set up dependencies
-require __DIR__ . '/src/dependencies.php';
+require __DIR__ . '/src/Configurations/dependencies.php';
 
 // Register middleware
-require __DIR__ . '/src/middleware.php';
+require __DIR__ . '/src/Configurations/middleware.php';
 
 // Register routes
-require __DIR__ . '/src/routes.php';
+require __DIR__ . '/src/Configurations/routes.php';
 
 $app->getContainer()->get("db");
 
