@@ -10,16 +10,37 @@ class Workplace extends Model{
     /**
      * Listagem dos usuarios
      */
-    public function list($id){
+    public function list($id, $page, $limit, $sort){
 
-        $list = (!empty($id))? Workplace::where('id', $id)->first() : Workplace::get();
+        $numrows = count(Workplace::get());
+        $rowsperpage = (!empty($limit))? $limit : 10;
+        $sort = (!empty($sort))? $sort : 'ASC'; 
+        $totalpages = ceil($numrows / $rowsperpage);
+        $currentpage = (isset($page) && is_numeric($page))? (int) $page : 1;
+
+        if ($currentpage > $totalpages) {
+            $currentpage = $totalpages;
+        }
+
+        if ($currentpage < 1) {
+            $currentpage = 1;
+        }
+         
+        $offset = ($currentpage - 1) * $rowsperpage;
+
+        $users = (object) Workplace::orderBy('id', $sort)
+                ->offset($offset)
+                ->limit($rowsperpage)
+                ->get();
+
+        $list = (!empty($id))? Workplace::where('id', $id)->first() : $users;
 
         if(!empty($list)){
-            return json_encode(['status' => 'success', 'data' => $list]);
+            return json_encode(['status' => 'success', 'page' => $currentpage, 'totalPages' => $totalpages, 'total' => $numrows, 'data' => $list]);
         }else{
             return json_encode(['status' => 'error', 'message' => 'Listagem não encontrada!']);
         }
-    }
+    }      
 
     /**
      * Inserção dos usuarios

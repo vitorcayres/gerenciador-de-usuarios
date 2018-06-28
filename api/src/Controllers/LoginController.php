@@ -34,8 +34,9 @@ class LoginController extends AdminController
             case 'success':
 
                 # Gerando data de expiração
-                $rows->data->expiration_at = date('Y-m-d H:i:s', strtotime('+60 minute', strtotime(date('Y-m-d H:i:s'))));
-
+                #$rows->data->expiration_at = date('Y-m-d H:i:s', strtotime('+60 minute', strtotime(date('Y-m-d H:i:s'))));
+                $rows->data->expiration_at = date('Y-m-d H:i:s', strtotime('+1 day', strtotime(date('Y-m-d H:i:s'))));
+                
                 # Gerando token de autorização
                 $token = JWT::encode($rows, $this->container->get("secretkey"));
 

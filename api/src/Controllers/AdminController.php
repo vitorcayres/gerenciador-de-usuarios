@@ -15,8 +15,17 @@ class AdminController
     }    
 
     public function GET(Request $request, Response $response, $args){
+
+        # Parametro de busca por ID
         $id = (!empty($args['id']))? $args['id'] : '';
-        $rows = json_decode($this->model::list($id));
+
+        # Parametros de paginação
+        $parameters = (!empty($request->getParams()))? (object) $request->getParams() : '';
+        $page = (!empty($parameters->page))? $parameters->page : '';
+        $limit = (!empty($parameters->limit))? $parameters->limit : '';
+        $sort = (!empty($parameters->sort))? $parameters->sort : '';
+
+        $rows = json_decode($this->model::list($id, $page, $limit, $sort));
         return $rows;
     }
 
