@@ -17,7 +17,7 @@ class Login extends Model{
         if(!empty($rows)){
             return json_encode(['status' => 'success', 'data' => $rows]);
         }else{
-            return json_encode(['status' => 'error', 'message' => 'Usuário não encontrado!']);
+            return json_encode(['status' => 'error', 'message' => 'Usuário ou senha incorretos!']);
         }
     }
 }

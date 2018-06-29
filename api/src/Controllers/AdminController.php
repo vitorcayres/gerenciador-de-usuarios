@@ -87,7 +87,7 @@ class AdminController
         if ($validator->isValid()){  
             return ['status' => 'success'];
         }else{
-            return $validator->getErrors();
+            return ['status' => 'error', 'message' => $validator->getErrors()];
         }
     }
 }
