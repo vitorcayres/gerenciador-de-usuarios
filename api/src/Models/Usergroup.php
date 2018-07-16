@@ -48,8 +48,18 @@ class Usergroup extends Model{
     public function add(array $data){
         $status = false;
 
+        $usergroupData['name'] = $data['name'];
+        $usergroupData['description'] = $data['description'];        
+
         try{
-            $add = Usergroup::insertGetId($data);
+            $id = Usergroup::insertGetId($usergroupData);
+
+            foreach($data['permissions'] as $item){
+                UsergroupHasPermission::insert([
+                    'usergroup_id' => $id,
+                    'permission_id' => $item]);
+            }
+
             $status = true;
         }
         catch(\Exception $e){

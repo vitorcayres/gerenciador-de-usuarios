@@ -16,11 +16,10 @@ class AdminController
 
     public function GET(Request $request, Response $response, $args){
 
-        # Parametro de busca por ID
-        $id = (!empty($args['id']))? $args['id'] : '';
-
         # Parametros de paginação
         $parameters = (!empty($request->getParams()))? (object) $request->getParams() : '';
+
+        if (!empty($parameters->id)){ $id = $parameters->id; } elseif (!empty($args['id'])) { $id = $args['id']; } else{ $id = ''; }
         $page = (!empty($parameters->page))? $parameters->page : '';
         $limit = (!empty($parameters->limit))? $parameters->limit : '';
         $sort = (!empty($parameters->sort))? $parameters->sort : '';

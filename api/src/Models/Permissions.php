@@ -73,6 +73,7 @@ class Permissions extends Model{
             try{
                 $update         = Permissions::find($id);
                 $update->name   = $data['name'];
+                $update->description   = $data['description'];                
                 $update->save();
                 $status = true;
             }

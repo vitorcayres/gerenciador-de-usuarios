@@ -22,4 +22,8 @@ $app->group('/v1', function () {
 	$this->map(['GET', 'POST', 'PUT', 'DELETE'], '/usergroup[/{id:[0-9]+}]', App\Controllers\UsergroupController::class . ':execute')
 		->add(App\Middleware\Authentication::class);
 
+	# Grupo de Permissões
+	$this->map(['GET', 'POST', 'PUT', 'DELETE'], '/usergroup_has_permission[/{id:[0-9]+}]', App\Controllers\UsergroupHasPermissionController::class . ':execute')
+		->add(App\Middleware\Authentication::class);		
+
 });

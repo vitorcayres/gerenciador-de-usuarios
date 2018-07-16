@@ -5,24 +5,13 @@ namespace App\Controllers;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Respect\Validation\Validator as Validation;
-use App\Models\Permissions;
+use App\Models\UsergroupHasPermission;
 
-class PermissionsController extends AdminController
+class UsergroupHasPermissionController extends AdminController
 {
     public function __construct($container){
         $this->container = $container;
-        $this->model = new Permissions();
-
-        $this->permission = [
-            'name' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],
-            'description' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ]                                                                                      
-        ];
+        $this->model = new UsergroupHasPermission();
     }    
 
     public function execute(Request $request, Response $response, $args){

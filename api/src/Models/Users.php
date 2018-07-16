@@ -55,6 +55,8 @@ class Users extends Model{
             $body['usergroup_id']   = $data['usergroup_id'];                               
             $body['superuser']      = $data['superuser'];
             $body['workplace_id']   = $data['workplace_id'];
+            $body['enabled']        = $data['enabled'];
+            $body['force_pass_change']   = $data['force_pass_change'];
             $add = Users::insertGetId($body);
             $status = true;
         }

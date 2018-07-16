@@ -21,7 +21,11 @@ class UsergroupController extends AdminController
             'description' => [
                 'rules' => Validation::notBlank(),
                 'message' => 'Este campo é obrigatório!'
-            ]                                                                                         
+            ],
+            'permissions' => [
+                'rules' => Validation::notBlank(),
+                'message' => 'Este campo é obrigatório!'
+            ]                                                                                                    
         ];
     }    
 
