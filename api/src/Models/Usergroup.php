@@ -14,7 +14,7 @@ class Usergroup extends Model{
 
         $numrows = count(Usergroup::get());
         $rowsperpage = (!empty($limit))? $limit : 10;
-        $sort = (!empty($sort))? $sort : 'ASC';        
+        $sort = (!empty($sort))? $sort : 'DESC';        
         $totalpages = ceil($numrows / $rowsperpage);
         $currentpage = (isset($page) && is_numeric($page))? (int) $page : 1;
 
@@ -78,24 +78,29 @@ class Usergroup extends Model{
 
         $status = false;
 
-        $update = Usergroup::find($id);
+        try{
+            $update                 = Usergroup::find($id);
+            $update->name           = $data['name'];
+            $update->description    = $data['description'];                
+            $update->save();
 
-        if (!empty($update)) {
-            try{
-                $update         = Usergroup::find($id);
-                $update->name   = $data['name'];
-                $update->save();
-                $status = true;
-            }
-            catch(\Exception $e){
-                return json_encode(['status' => 'error', 'message' => $e->getMessage()]);
-            } 
+            $remove = UsergroupHasPermission::where('usergroup_id', $id);
+            $remove->delete();            
 
-            if($status){
-                return json_encode(['status' => 'success', 'message' => 'Perfil alterado com sucesso!']);
+            foreach($data['permissions'] as $item){
+                UsergroupHasPermission::insert([
+                    'usergroup_id' => $id,
+                    'permission_id' => $item]);
             }
-        }else{
-            return json_encode(['status' => 'error', 'message' => 'Perfil não encontrado!']);
+
+            $status = true;
+        }
+        catch(\Exception $e){
+            return json_encode(['status' => 'error', 'message' => $e->getMessage()]);
+        } 
+
+        if($status){
+            return json_encode(['status' => 'success', 'message' => 'Perfil alterado com sucesso!']);
         }
     }
     
@@ -104,15 +109,29 @@ class Usergroup extends Model{
      */
     public function remove($id){
 
+        $buscaCliente = Users::where('usergroup_id', $id)->exists();
+
+        if($buscaCliente){
+            return json_encode(
+                    ['status' => 'error',
+                     'message' => 'Há usuários atrelados a este perfil, é necessário a exclusão do usuário antes de executar esta ação!']
+            );
+        }
+
         $remove = Usergroup::find($id);
 
         if(!empty($remove)){
-
             $status = false;
-
             try {
-                $remove = Usergroup::find($id);
-                $remove->delete();
+                
+                # Remove o grupo de usuarios especifico pelo id
+                $removeUsergroupHasPermission = UsergroupHasPermission::where('usergroup_id', $id);
+                $removeUsergroupHasPermission->delete();
+
+                # Remove o perfil pelo id
+                $removeUsergroup = Usergroup::find($id);
+                $removeUsergroup->delete();
+
                 $status = true;
             } catch(\Exception $e){
                 return json_encode(['status' => 'error', 'message' => $e->getMessage()]);

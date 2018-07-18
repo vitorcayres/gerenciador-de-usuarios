@@ -14,7 +14,7 @@ class UsergroupHasPermission extends Model{
 
         $numrows = count(UsergroupHasPermission::get());
         $rowsperpage = (!empty($limit))? $limit : 10;
-        $sort = (!empty($sort))? $sort : 'ASC';        
+        $sort = (!empty($sort))? $sort : 'DESC';        
         $totalpages = ceil($numrows / $rowsperpage);
         $currentpage = (isset($page) && is_numeric($page))? (int) $page : 1;
 

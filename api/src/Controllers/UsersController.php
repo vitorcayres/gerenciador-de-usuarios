@@ -16,32 +16,24 @@ class UsersController extends AdminController
         $this->permission = [
             'username' => [
                 'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
+                'message' => 'O campo usuário é obrigatório!'
             ],
             'password' => [
                 'rules' => Validation::length(8),
-                'message' => 'Este campo é obrigatório!'
+                'message' => 'A senha deve conter no mínimo 8 caracteres!'
             ],
             'name' => [
                 'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
+                'message' => 'O campo nome é obrigatório!'
             ],
             'usergroup_id' => [
                 'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],
-            'superuser' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
+                'message' => 'O campo grupo de usuários é obrigatório!'
             ],
             'workplace_id' => [
                 'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],
-            'enabled' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ],                                                                             
+                'message' => 'O campo empresa é obrigatório!'
+            ]                                                            
         ];
     }    
 

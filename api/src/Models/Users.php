@@ -14,7 +14,7 @@ class Users extends Model{
 
         $numrows = count(Users::get());
         $rowsperpage = (!empty($limit))? $limit : 10;
-        $sort = (!empty($sort))? $sort : 'ASC';         
+        $sort = (!empty($sort))? $sort : 'DESC';         
         $totalpages = ceil($numrows / $rowsperpage);
         $currentpage = (isset($page) && is_numeric($page))? (int) $page : 1;
 
@@ -49,14 +49,19 @@ class Users extends Model{
         $status = false;
 
         try{
+
+            $verificaUsuario = Users::where('username', $data['username'])->first();
+
+            if($verificaUsuario){
+                return json_encode(['status' => 'error', 'message' => ['error' => 'Usuário já existente!']]);
+            }
+
+            $body['name']           = $data['name'];
             $body['username']       = $data['username'];
             $body['password']       = md5($data['password']);
-            $body['name']           = $data['name'];
-            $body['usergroup_id']   = $data['usergroup_id'];                               
-            $body['superuser']      = $data['superuser'];
+            $body['usergroup_id']   = $data['usergroup_id'];
             $body['workplace_id']   = $data['workplace_id'];
-            $body['enabled']        = $data['enabled'];
-            $body['force_pass_change']   = $data['force_pass_change'];
+
             $add = Users::insertGetId($body);
             $status = true;
         }
@@ -87,6 +92,8 @@ class Users extends Model{
                 $update->usergroup_id   = $data['usergroup_id'];                               
                 $update->superuser      = $data['superuser'];
                 $update->workplace_id   = $data['workplace_id'];
+                $update->enabled        = $data['enabled'];
+                $update->force_pass_change= $data['force_pass_change'];                                         
                 $update->save();
                 $status = true;
             }

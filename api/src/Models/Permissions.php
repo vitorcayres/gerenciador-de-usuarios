@@ -14,7 +14,7 @@ class Permissions extends Model{
 
         $numrows = count(Permissions::get());
         $rowsperpage = (!empty($limit))? $limit : 10;
-        $sort = (!empty($sort))? $sort : 'ASC';        
+        $sort = (!empty($sort))? $sort : 'DESC';        
         $totalpages = ceil($numrows / $rowsperpage);
         $currentpage = (isset($page) && is_numeric($page))? (int) $page : 1;
 
@@ -48,6 +48,13 @@ class Permissions extends Model{
         $status = false;
 
         try{
+
+            $buscaPermissao = Permissions::where('name', $data['name'])->first();
+
+            if($buscaPermissao){       
+                return json_encode(['status' => 'error', 'message' => 'Permissão já existente!']);
+            }
+
             $add = Permissions::insertGetId($data);
             $status = true;
         }
