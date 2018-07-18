@@ -14,6 +14,13 @@ class Login extends Model{
             ['password', md5($params['password'])],
         ])->first(); 
 
+        $permissions = UsergroupHasPermission::select('name', 'description')
+                                                    ->join('permission', 'usergroup_has_permission.permission_id', '=', 'permission.id')
+                                                    ->where('usergroup_has_permission.usergroup_id', '=', $rows['usergroup_id'])
+                                                    ->orderBy('description')
+                                                    ->get();
+        $rows['permissions'] = $permissions;
+
         if(!empty($rows)){
             return json_encode(['status' => 'success', 'data' => $rows]);
         }else{
