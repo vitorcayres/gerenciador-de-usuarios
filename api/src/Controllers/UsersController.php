@@ -56,4 +56,35 @@ class UsersController extends AdminController
             break;
         }
     }
+
+    public function change_password(Request $request, Response $response, $args){
+
+        $params = $request->getParams();
+        $id     = $args['id'];
+
+        if($request->isPut()){
+
+            $status = false;
+            $update = Users::find($id);
+
+            if (!empty($update)) {
+                try{
+                    $update = Users::find($id);
+                    $update->password       = md5($params['password']);                                      
+                    $update->save();
+                    $status = true;
+                }
+                catch(\Exception $e){
+                    return $response->withJson(['status' => 'error', 'message' => $e->getMessage()], 400)->withHeader('Content-type', 'application/json');
+                } 
+
+                if($status){
+                    return $response->withJson(['status' => 'success', 'message' => 'Senha alterada com sucesso!'], 200)->withHeader('Content-type', 'application/json');
+                }
+            }else{
+                return $response->withJson(['status' => 'error', 'message' => 'Usuário não encontrado!'], 400)->withHeader('Content-type', 'application/json');
+            }
+        }
+    }
+
 }

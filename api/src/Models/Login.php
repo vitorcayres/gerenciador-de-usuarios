@@ -21,7 +21,7 @@ class Login extends Model{
                                                     ->get();
         $rows['permissions'] = $permissions;
 
-        if(!empty($rows)){
+        if(is_object($rows)){
             return json_encode(['status' => 'success', 'data' => $rows]);
         }else{
             return json_encode(['status' => 'error', 'message' => 'Usuário ou senha incorretos!']);

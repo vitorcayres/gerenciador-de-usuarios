@@ -10,6 +10,10 @@ $app->group('/v1', function () {
 	$this->map(['GET', 'POST', 'PUT', 'DELETE'], '/users[/{id:[0-9]+}]', App\Controllers\UsersController::class . ':execute')
 		->add(App\Middleware\Authentication::class);
 
+	# Alterar Senha
+	$this->map(['PUT'], '/change_password[/{id:[0-9]+}]', App\Controllers\UsersController::class . ':change_password')
+		->add(App\Middleware\Authentication::class);		
+
 	# Empresas
 	$this->map(['GET', 'POST', 'PUT', 'DELETE'], '/workplace[/{id:[0-9]+}]', App\Controllers\WorkplaceController::class .':execute')
 		->add(App\Middleware\Authentication::class);
