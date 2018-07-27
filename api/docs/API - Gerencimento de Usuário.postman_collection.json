@@ -1,0 +1,900 @@
+{
+	"id": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+	"name": "API | Gerencimento de Usuário",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"name": "Autenticação",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"order": [
+				"7d26e375-de78-cc94-ab1f-0a4d2ac774d5"
+			],
+			"owner": "1100207",
+			"folders_order": [],
+			"id": "3a839598-3eef-0bea-d0b1-9bae886c5b94"
+		},
+		{
+			"name": "Empresas",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"order": [
+				"c2c14abf-32ca-da6b-9938-b45afc4c1fac",
+				"a8803169-b62d-1389-4d0e-117bea19482d",
+				"e7252142-f88f-4837-1a20-ef713d644516",
+				"efcd226d-c4c4-9d29-24f1-a8d2e3368298",
+				"51d49a7c-15d5-b0d6-7ae8-4b22343e5f56"
+			],
+			"owner": "1100207",
+			"folders_order": [],
+			"id": "5c421370-e0f5-5a81-bb3e-0a5e04dfada7"
+		},
+		{
+			"name": "Grupo de Permissões",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"order": [
+				"8240bdcc-d7fd-645e-37bf-4c567f4436cc",
+				"a176c055-eb0e-dfa4-b329-dd74d6c19828"
+			],
+			"owner": "1100207",
+			"folders_order": [],
+			"id": "93be5dfe-fa48-16bc-d577-fc1ee86bf9f6"
+		},
+		{
+			"name": "Perfil",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"order": [
+				"b3448861-021d-024a-3915-8c4c3ea19b6b",
+				"fd13cc8a-3d3b-d5a9-f212-d6adc06f52af",
+				"137d62f4-a8a8-62ff-14a1-355997b0b092",
+				"7396cd96-87f3-7143-531b-d70c86986443",
+				"a616d0cf-7680-3b11-017a-b8d828a9682c"
+			],
+			"owner": "1100207",
+			"folders_order": [],
+			"id": "452dd7ba-6fc4-d53c-7328-9b4fe7984ae2"
+		},
+		{
+			"name": "Permissões",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"order": [
+				"4c4bee95-f0df-0837-85ac-fc5e1d6bdb45",
+				"3ca59874-c742-ef65-f2e5-ee43dac6692f",
+				"c54d3fc3-5ed3-7ba5-f17b-ca877d7d30f0",
+				"13aa5142-89b2-2c8d-ad3b-4b0b720038ff",
+				"80e42cda-1df7-7624-5b06-4feb989287cc"
+			],
+			"owner": "1100207",
+			"folders_order": [],
+			"id": "231f4c9b-6b36-8762-1c92-04a2751c59c4"
+		},
+		{
+			"name": "Usuários",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"order": [
+				"eabd7954-9c98-7488-d0e8-137d9f25a1ef",
+				"7d110864-0ed1-f086-8e96-d2647a481d40",
+				"743039c0-189e-d10f-1f6b-cb2fba155c50",
+				"62e8cfbe-6534-005d-2172-0607d2fba227",
+				"802457b3-6a09-f1ed-c7e5-73aee2477592",
+				"dd933e4e-9e7c-0db6-ea79-62882f404ea9"
+			],
+			"owner": "1100207",
+			"folders_order": [],
+			"id": "fdcacd72-ce5e-6cb4-80f2-5361934194ea"
+		}
+	],
+	"folders_order": [
+		"3a839598-3eef-0bea-d0b1-9bae886c5b94",
+		"fdcacd72-ce5e-6cb4-80f2-5361934194ea",
+		"5c421370-e0f5-5a81-bb3e-0a5e04dfada7",
+		"231f4c9b-6b36-8762-1c92-04a2751c59c4",
+		"452dd7ba-6fc4-d53c-7328-9b4fe7984ae2",
+		"93be5dfe-fa48-16bc-d577-fc1ee86bf9f6"
+	],
+	"timestamp": 1528981624752,
+	"owner": "1100207",
+	"public": false,
+	"requests": [
+		{
+			"id": "137d62f4-a8a8-62ff-14a1-355997b0b092",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/usergroup",
+			"folder": "452dd7ba-6fc4-d53c-7328-9b4fe7984ae2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1531835161353,
+			"name": "Perfil - Novo",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": [],
+			"rawModeData": "{\r\n\t\"name\": \"Teste\",\r\n\t\"description\": \"TESTE | TESTE\",\r\n\t\"permissions\": [\"1\",\r\n\t\t\t\t\t\"2\",\r\n\t\t\t\t\t\"3\",\r\n\t\t\t\t\t\"4\",\r\n\t\t\t\t\t\"5\",\r\n\t\t\t\t\t\"6\",\r\n\t\t\t\t\t\"7\",\r\n\t\t\t\t\t\"8\",\r\n\t\t\t\t\t\"9\",\r\n\t\t\t\t\t\"10\",\r\n\t\t\t\t\t\"11\",\r\n\t\t\t\t\t\"12\"\r\n\t\t\t\t\t]\r\n}"
+		},
+		{
+			"id": "13aa5142-89b2-2c8d-ad3b-4b0b720038ff",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/permissions/80",
+			"folder": "231f4c9b-6b36-8762-1c92-04a2751c59c4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529583671418,
+			"name": "Permissões - Atualizar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"Vivo\"\n}"
+		},
+		{
+			"id": "3ca59874-c742-ef65-f2e5-ee43dac6692f",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/permissions/1",
+			"folder": "231f4c9b-6b36-8762-1c92-04a2751c59c4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529583584122,
+			"name": "Permissões - Listar por ID",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "4c4bee95-f0df-0837-85ac-fc5e1d6bdb45",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/permissions",
+			"folder": "231f4c9b-6b36-8762-1c92-04a2751c59c4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529583581819,
+			"name": "Permissões - Listar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "51d49a7c-15d5-b0d6-7ae8-4b22343e5f56",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/workplace/1",
+			"folder": "5c421370-e0f5-5a81-bb3e-0a5e04dfada7",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529521990951,
+			"name": "Empresas - Apagar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "62e8cfbe-6534-005d-2172-0607d2fba227",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/users/177",
+			"folder": "fdcacd72-ce5e-6cb4-80f2-5361934194ea",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529508420731,
+			"name": "Usuários - Atualizar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": [],
+			"rawModeData": "{\n\t\"enabled\": \"1\",\n\t\"force_pass_change\": \"-1\",\n\t\"password\": \"Fsas123@\",\n\t\"usergroup_id\": \"1\",\n\t\"username\": \"paulo.roberto\",\n\t\"name\": \"Paulo Roberto\",\n\t\"superuser\": \"1\",\n\t\"workplace_id\": \"1\"\n}"
+		},
+		{
+			"id": "7396cd96-87f3-7143-531b-d70c86986443",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/usergroup/25",
+			"folder": "452dd7ba-6fc4-d53c-7328-9b4fe7984ae2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1531835113846,
+			"name": "Perfil - Atualizar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\":\"TESTANDOOLA\",\n\t\"description\":\"TESTE | TESTE\",\n\t\"permissions\":[\n\t\t\"1\"]\n}"
+		},
+		{
+			"id": "743039c0-189e-d10f-1f6b-cb2fba155c50",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/users",
+			"folder": "fdcacd72-ce5e-6cb4-80f2-5361934194ea",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1531920659514,
+			"name": "Usuários - Novo",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": [],
+			"rawModeData": "{\n\t\"password\": \"teste1234\",\n\t\"usergroup_id\": \"1\",\n\t\"username\": \"teste\",\n\t\"name\": \"teste\",\n\t\"superuser\": \"1\",\n\t\"workplace_id\": \"1\"\n}"
+		},
+		{
+			"id": "7d110864-0ed1-f086-8e96-d2647a481d40",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/users/180",
+			"folder": "fdcacd72-ce5e-6cb4-80f2-5361934194ea",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1530031522954,
+			"name": "Usuários - Listar por ID",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "7d26e375-de78-cc94-ab1f-0a4d2ac774d5",
+			"headers": "Authorization: {{basic_auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{basic_auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/auth/login",
+			"folder": "3a839598-3eef-0bea-d0b1-9bae886c5b94",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1531403913295,
+			"name": "Autentica o usuário na API",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\": \"administrador\",\n\t\"password\": \"Fsas123@\"\n}"
+		},
+		{
+			"id": "802457b3-6a09-f1ed-c7e5-73aee2477592",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/users/170",
+			"folder": "fdcacd72-ce5e-6cb4-80f2-5361934194ea",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529508418469,
+			"name": "Usuários - Apagar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "80e42cda-1df7-7624-5b06-4feb989287cc",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/permissions/80",
+			"folder": "231f4c9b-6b36-8762-1c92-04a2751c59c4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529583673617,
+			"name": "Permissões - Apagar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "8240bdcc-d7fd-645e-37bf-4c567f4436cc",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": ""
+				}
+			],
+			"url": "{{hostname}}/usergroup_has_permission",
+			"folder": "93be5dfe-fa48-16bc-d577-fc1ee86bf9f6",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1531835242809,
+			"name": "Grupo de Permissões - Listar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "a176c055-eb0e-dfa4-b329-dd74d6c19828",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/usergroup_has_permission?id=1&limit=1000",
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "limit",
+					"value": "1000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"data": null,
+			"dataMode": "params",
+			"name": "Grupo de Permissões - Listar por ID",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1531835217296,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "93be5dfe-fa48-16bc-d577-fc1ee86bf9f6"
+		},
+		{
+			"id": "a616d0cf-7680-3b11-017a-b8d828a9682c",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/usergroup/34",
+			"folder": "452dd7ba-6fc4-d53c-7328-9b4fe7984ae2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1531918891888,
+			"name": "Perfil - Apagar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "a8803169-b62d-1389-4d0e-117bea19482d",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": ""
+				}
+			],
+			"url": "{{hostname}}/workplace/2",
+			"folder": "5c421370-e0f5-5a81-bb3e-0a5e04dfada7",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529523921427,
+			"name": "Empresas - Listar por ID",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "b3448861-021d-024a-3915-8c4c3ea19b6b",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/usergroup",
+			"folder": "452dd7ba-6fc4-d53c-7328-9b4fe7984ae2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529584020656,
+			"name": "Perfil - Listar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "c2c14abf-32ca-da6b-9938-b45afc4c1fac",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": ""
+				}
+			],
+			"url": "{{hostname}}/workplace",
+			"folder": "5c421370-e0f5-5a81-bb3e-0a5e04dfada7",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529523695977,
+			"name": "Empresas - Listar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "c54d3fc3-5ed3-7ba5-f17b-ca877d7d30f0",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/permissions",
+			"folder": "231f4c9b-6b36-8762-1c92-04a2751c59c4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1531936131291,
+			"name": "Permissões - Novo",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"testando\",\n\t\"description\" : \"testando\"\n}"
+		},
+		{
+			"id": "dd933e4e-9e7c-0db6-ea79-62882f404ea9",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/change_password/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Usuario - Alterar Senha",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1532457577478,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "fdcacd72-ce5e-6cb4-80f2-5361934194ea",
+			"rawModeData": "{\n\t\"password\": \"Fsas123@\"\n}"
+		},
+		{
+			"id": "e7252142-f88f-4837-1a20-ef713d644516",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/workplace",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Empresas - Novo",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1529521466967,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "5c421370-e0f5-5a81-bb3e-0a5e04dfada7",
+			"rawModeData": "{\n    \"name\": \"Claro\"\n}"
+		},
+		{
+			"id": "eabd7954-9c98-7488-d0e8-137d9f25a1ef",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/users",
+			"folder": "fdcacd72-ce5e-6cb4-80f2-5361934194ea",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1530189161993,
+			"name": "Usuários - Listar",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		},
+		{
+			"id": "efcd226d-c4c4-9d29-24f1-a8d2e3368298",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/workplace/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Empresas - Atualizar",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1529521604819,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "5c421370-e0f5-5a81-bb3e-0a5e04dfada7",
+			"rawModeData": "{\n    \"name\": \"Teste\"\n}"
+		},
+		{
+			"id": "fd13cc8a-3d3b-d5a9-f212-d6adc06f52af",
+			"headers": "Authorization: {{token}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{hostname}}/usergroup/1",
+			"folder": "452dd7ba-6fc4-d53c-7328-9b4fe7984ae2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1529584027679,
+			"name": "Perfil - Listar por ID",
+			"description": "",
+			"collectionId": "bb6cc193-b13d-2763-dbd3-b820313c5310",
+			"responses": []
+		}
+	]
+}
