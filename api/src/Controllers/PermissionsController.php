@@ -17,11 +17,7 @@ class PermissionsController extends AdminController
             'name' => [
                 'rules' => Validation::notBlank(),
                 'message' => 'Este campo é obrigatório!'
-            ],
-            'description' => [
-                'rules' => Validation::notBlank(),
-                'message' => 'Este campo é obrigatório!'
-            ]                                                                                      
+            ]                                                                                     
         ];
     }    
 

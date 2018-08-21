@@ -33,7 +33,13 @@ class UsergroupHasPermission extends Model{
                 ->limit($rowsperpage)
                 ->get();
 
-        $list = (!empty($id))? UsergroupHasPermission::where('usergroup_id', $id)->get() : $usergroup_has_permission;
+        $usergroup_has_permissionId = (object) UsergroupHasPermission::select('id', 'name')
+                                                    ->join('permission', 'usergroup_has_permission.permission_id', '=', 'permission.id')
+                                                    ->where('usergroup_has_permission.usergroup_id', '=', $id)
+                                                    ->orderBy('id', $sort)
+                                                    ->get();
+
+        $list = (!empty($id))? $usergroup_has_permissionId : $usergroup_has_permission;
 
         if(!empty($list)){
             return json_encode(['status' => 'success', 'page' => $currentpage, 'totalPages' => $totalpages, 'total' => $numrows, 'data' => $list]);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Jun-2018 às 15:17
+-- Generation Time: 13-Ago-2018 às 14:45
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -19,26 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `portal_de_operacoes`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `log_user`
---
-
-CREATE TABLE `log_user` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(11) UNSIGNED NOT NULL,
-  `entity` varchar(20) NOT NULL,
-  `action` varchar(45) NOT NULL,
-  `before_act` text,
-  `after_act` text,
-  `remote_addr` varchar(25) DEFAULT NULL,
-  `user_agent` varchar(255) DEFAULT NULL,
-  `http_x_forwarded_for` varchar(255) DEFAULT NULL,
-  `http_referer` varchar(255) DEFAULT NULL,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -59,43 +39,54 @@ CREATE TABLE `permission` (
 --
 
 INSERT INTO `permission` (`id`, `description`, `name`, `create_date`, `updated_at`) VALUES
-(1, 'ADM | List User', 'adm-list-user', '2015-07-27 22:46:48', '2018-06-21 12:20:37'),
-(2, 'ADM | New User', 'adm-new-user', '2015-07-27 22:46:48', '2018-06-21 12:20:37'),
-(3, 'ADM | Administrative', 'adm-admin', '2015-07-27 22:46:48', '2018-06-21 12:20:37'),
-(4, 'ADM | List Workplaces', 'adm-list-workplace', '2015-07-27 22:46:48', '2018-06-21 12:20:37'),
-(5, 'ADM | New Workplaces', 'adm-new-workplace', '2015-07-27 22:46:48', '2018-06-21 12:20:37'),
-(6, 'ADM | List Perfis', 'adm-list-perfil', '2015-07-27 22:46:48', '2018-06-21 12:20:37'),
-(7, 'ADM | New Perfil', 'adm-new-perfil', '2015-07-27 22:46:48', '2018-06-21 12:20:37'),
-(8, 'ADM | List Permissions', 'adm-list-permission', '2015-07-27 22:46:48', '2018-06-21 12:20:37'),
-(9, 'ADM | New Permission', 'adm-new-permission', '2015-07-27 22:46:48', '2018-06-21 12:20:37'),
-(10, 'ADM | Index', 'adm-admin-index', '2015-08-13 20:20:45', '2018-06-21 12:20:37'),
-(11, 'ADM | Remove Perfil', 'adm-remove-perfil', '2015-08-17 18:19:56', '2018-06-21 12:20:37'),
-(12, 'ADM | Modify Perfil', 'adm-modify-perfil', '2015-08-17 18:20:04', '2018-06-21 12:20:37'),
-(13, 'ADM | Modify Workplace', 'adm-modify-workplace', '2015-08-17 18:33:08', '2018-06-21 12:20:37'),
-(14, 'ADM | Remove Workplace', 'adm-remove-workplace', '2015-08-17 18:33:16', '2018-06-21 12:20:37'),
-(15, 'ADM | Remove Permission', 'adm-remove-permission', '2015-08-17 18:33:24', '2018-06-21 12:20:37'),
-(16, 'ADM | Modify Permission', 'adm-modify-permission', '2015-08-17 18:33:34', '2018-06-21 12:20:37'),
-(17, 'General | Change Password', 'change-password', '2015-08-18 14:46:23', '2018-06-21 12:20:37'),
-(18, 'ADM | Change Password', 'adm-change-password', '2015-08-18 15:02:31', '2018-06-21 12:20:37'),
-(19, 'ADM | Modify User', 'adm-modify-user', '2015-08-18 21:36:03', '2018-06-21 12:20:37'),
-(20, 'ADM | Remove User', 'adm-remove-user', '2015-08-18 21:36:10', '2018-06-21 12:20:37'),
-(21, 'ADM | List Customer Service', 'adm-list-customer-service', '2017-02-13 10:33:23', '2018-06-21 12:20:37'),
-(24, 'ADM | New Customer Service', 'adm-new-customer-service', '2017-02-13 10:51:49', '2018-06-21 12:20:37'),
-(27, 'ADM | Modify Customer Service', 'adm-modify-customer-service', '2017-02-13 10:52:25', '2018-06-21 12:20:37'),
-(30, 'ADM | Remove Customer Service', 'adm-remove-customer-service', '2017-02-13 10:52:53', '2018-06-21 12:20:37'),
-(55, 'ADM | List Consultation Report', 'adm-list-consultation-report', '2017-02-14 11:17:17', '2018-06-21 12:20:37'),
-(58, 'ADM | New Consultation Report', 'adm-new-consultation-report', '2017-02-14 11:17:41', '2018-06-21 12:20:37'),
-(61, 'ADM | Modify Consultation Report', 'adm-modify-consultation-report', '2017-02-14 11:47:34', '2018-06-21 12:20:37'),
-(64, 'ADM | Remove Consultation Report', 'adm-remove-consultation-report', '2017-02-14 11:48:14', '2018-06-21 12:20:37'),
-(65, 'ADM | List Consultation Report', 'adm-list-report-consultation', '2017-02-15 23:20:43', '2018-06-21 12:20:37'),
-(66, 'ADM | List Complaint', 'adm-list-complaint', '2017-04-13 16:51:03', '2018-06-21 12:20:37'),
-(69, 'ADM | Upload Complaint', 'adm-upload-complaint', '2017-04-13 17:48:12', '2018-06-21 12:20:37'),
-(70, 'ADM | Modify Complaint', 'adm-modify-complaint', '2017-04-17 19:02:20', '2018-06-21 12:20:37'),
-(73, 'ADM | Remove Complaint', 'adm-remove-complaint', '2017-04-17 19:02:34', '2018-06-21 12:20:37'),
-(76, 'ADM | New Complaint', 'adm-new-complaint', '2017-04-17 19:02:56', '2018-06-21 12:20:37'),
-(77, 'ADM | Export Complaint', 'adm-export-complaint', '2017-04-17 19:44:19', '2018-06-21 12:20:37'),
-(78, 'ADM | Logger', 'adm-logger', '2017-06-30 17:26:53', '2018-06-21 12:20:37'),
-(79, 'ADM | Backup Complaint', 'adm-backup-complaint', '2017-07-19 12:03:04', '2018-06-21 12:20:37');
+(1, 'Dashboard', 'dashboard', '2018-07-19 12:39:50', '2018-07-19 12:39:50'),
+(2, 'Configurações | Listar Empresas', 'listar-empresa', '2018-07-19 12:40:23', '2018-07-19 12:40:23'),
+(3, 'Configurações | Adicionar Empresa', 'inserir-empresa', '2018-07-19 12:40:36', '2018-07-19 12:40:36'),
+(4, 'Configurações | Editar Empresa', 'editar-empresa', '2018-07-19 12:40:44', '2018-07-19 12:40:44'),
+(5, 'Configurações | Remover Empresa', 'remover-empresa', '2018-07-19 12:40:54', '2018-07-19 12:40:54'),
+(6, 'Configurações | Listar Usuário', 'listar-usuario', '2018-07-19 12:41:16', '2018-07-19 12:41:16'),
+(7, 'Configurações | Adicionar Usuário', 'inserir-usuario', '2018-07-19 12:41:34', '2018-07-19 12:41:34'),
+(8, 'Configurações | Editar Usuário', 'editar-usuario', '2018-07-19 12:41:47', '2018-07-19 12:41:47'),
+(9, 'Configurações | Remover Usuário', 'remover-usuario', '2018-07-19 12:42:15', '2018-07-19 12:42:15'),
+(10, 'Configurações | Listar Perfil', 'listar-perfil', '2018-07-19 12:43:55', '2018-07-19 12:43:55'),
+(11, 'Configurações | Adicionar Perfil', 'inserir-perfil', '2018-07-19 12:44:08', '2018-07-19 12:44:08'),
+(12, 'Configurações | Editar Perfil', 'editar-perfil', '2018-07-19 12:44:23', '2018-07-19 12:44:23'),
+(13, 'Configurações | Remover Perfil', 'remover-perfil', '2018-07-19 12:44:38', '2018-07-19 12:44:38'),
+(14, 'Configurações | Listar Permissão', 'listar-permissao', '2018-07-19 12:45:22', '2018-07-19 12:45:22'),
+(15, 'Configurações | Adicionar Permissão', 'inserir-permissao', '2018-07-19 12:45:43', '2018-07-19 12:45:43'),
+(16, 'Configurações | Editar Permissão', 'editar-permissao', '2018-07-19 12:46:07', '2018-07-19 12:46:07'),
+(17, 'Configurações | Remover Permissão', 'remover-permissao', '2018-07-19 12:46:27', '2018-07-19 12:46:27'),
+(18, 'Configurações | Alterar Senha Usuário', 'alterar-senha', '2018-07-19 18:23:51', '2018-07-19 23:24:01'),
+(19, 'Interatividade | Listar Parceiro', 'listar-parceiro', '2018-08-01 17:35:54', '2018-08-01 17:35:54'),
+(20, 'Interatividade | Inserir Parceiro', 'inserir-parceiro', '2018-08-01 17:36:10', '2018-08-01 17:36:10'),
+(21, 'Interatividade | Editar Parceiro', 'editar-parceiro', '2018-08-01 17:36:30', '2018-08-01 17:36:30'),
+(22, 'Interatividade | Remover Parceiro', 'remover-parceiro', '2018-08-01 17:36:48', '2018-08-01 17:36:48'),
+(23, 'Interatividade | Inserir Oferta', 'inserir-oferta', '2018-08-01 19:14:11', '2018-08-01 19:14:11'),
+(24, 'Interatividade | Editar Oferta', 'editar-oferta', '2018-08-01 19:14:25', '2018-08-01 19:14:25'),
+(25, 'Interatividade | Listar Oferta', 'listar-oferta', '2018-08-01 19:14:42', '2018-08-01 19:14:42'),
+(26, 'Interatividade | Remover Oferta', 'remover-oferta', '2018-08-01 19:14:57', '2018-08-01 19:14:57'),
+(27, 'Interatividade | Listar Canal', 'listar-canal', '2018-08-02 11:16:53', '2018-08-02 11:16:53'),
+(28, 'Interatividade | Inserir Canal', 'inserir-canal', '2018-08-02 11:17:11', '2018-08-02 11:17:11'),
+(29, 'Interatividade | Editar Canal', 'editar-canal', '2018-08-02 11:31:17', '2018-08-02 11:31:17'),
+(30, 'Interatividade | Remover Canal', 'remover-canal', '2018-08-02 11:31:29', '2018-08-02 11:31:29'),
+(31, 'Interatividade | Listar Notícia', 'listar-noticia', '2018-08-02 12:25:31', '2018-08-02 12:25:31'),
+(32, 'Interatividade | Inserir Notícia', 'inserir-noticia', '2018-08-02 12:25:48', '2018-08-02 12:25:48'),
+(33, 'Interatividade | Editar Notícia', 'editar-noticia', '2018-08-02 12:26:01', '2018-08-02 12:26:01'),
+(34, 'Interatividade | Remover Notícia', 'remover-noticia', '2018-08-02 12:26:14', '2018-08-02 12:26:14'),
+(35, 'Interatividade | Listar Produto', 'listar-produto', '2018-08-02 13:28:10', '2018-08-02 13:28:10'),
+(36, 'Interatividade | Inserir Produto', 'inserir-produto', '2018-08-02 13:28:24', '2018-08-02 13:28:24'),
+(37, 'Interatividade | Editar Produto', 'editar-produto', '2018-08-02 13:28:52', '2018-08-02 13:28:52'),
+(38, 'Interatividade | Remover Produto', 'remover-produto', '2018-08-02 13:29:19', '2018-08-02 13:29:19'),
+(39, 'Interatividade | Listar Luckynumber', 'listar-luckynumber', '2018-08-02 13:30:14', '2018-08-02 13:30:14'),
+(40, 'Interatividade | Inserir Luckynumber', 'inserir-luckynumber', '2018-08-02 13:30:34', '2018-08-02 13:30:34'),
+(41, 'Interatividade | Editar Luckynumber', 'editar-luckynumber', '2018-08-02 13:30:46', '2018-08-02 13:30:46'),
+(42, 'Interatividade | Remover Luckynumber', 'remover-luckynumber', '2018-08-02 13:30:58', '2018-08-02 13:30:58'),
+(43, 'Interatividade | Listar Fraseologia', 'listar-fraseologia', '2018-08-02 13:31:15', '2018-08-02 13:31:15'),
+(44, 'Interatividade | Inserir Fraseologia', 'inserir-fraseologia', '2018-08-02 13:31:31', '2018-08-02 13:31:31'),
+(45, 'Interatividade | Editar Fraseologia', 'editar-fraseologia', '2018-08-02 13:31:47', '2018-08-02 13:31:47'),
+(46, 'Interatividade | Remover Fraseologia', 'remover-fraseologia', '2018-08-02 13:32:12', '2018-08-02 13:32:12'),
+(47, 'Interatividade | Detalhe Produto', 'detalhe-produto', '2018-08-02 13:43:54', '2018-08-02 13:43:54'),
+(48, 'Interatividade | Publicar Fraseologia', 'publicar-fraseologia', '2018-08-07 19:46:35', '2018-08-07 19:46:35');
 
 -- --------------------------------------------------------
 
@@ -111,9 +102,7 @@ CREATE TABLE `user` (
   `usergroup_id` bigint(20) DEFAULT NULL,
   `username` varchar(45) NOT NULL,
   `name` varchar(150) NOT NULL,
-  `superuser` tinyint(4) DEFAULT '-1',
   `workplace_id` int(11) UNSIGNED DEFAULT NULL,
-  `last_change_password` timestamp NULL DEFAULT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -122,12 +111,8 @@ CREATE TABLE `user` (
 -- Extraindo dados da tabela `user`
 --
 
-INSERT INTO `user` (`id`, `enabled`, `force_pass_change`, `password`, `usergroup_id`, `username`, `name`, `superuser`, `workplace_id`, `last_change_password`, `create_date`, `updated_at`) VALUES
-(180, 1, -1, 'e1b2adc0185d40dc70e2b4c9d814bbf4', 1, 'vitor.cayres', 'Vitor Cayres', 1, 1, NULL, '2018-06-19 17:43:37', '2018-06-19 17:43:37'),
-(182, 1, -1, 'e1b2adc0185d40dc70e2b4c9d814bbf4', 1, 'teste', 'Vitor Cayres', 1, 1, NULL, '2018-06-20 14:58:48', '2018-06-20 14:58:48'),
-(185, 1, -1, 'e1b2adc0185d40dc70e2b4c9d814bbf4', 1, 'roberto.carlos', 'Roberto Carlos', 1, 1, NULL, '2018-06-20 15:01:46', '2018-06-20 15:01:46'),
-(186, 1, -1, 'e1b2adc0185d40dc70e2b4c9d814bbf4', 1, 'paula.ferreira', 'Paula Ferreira', 1, 1, NULL, '2018-06-20 15:15:10', '2018-06-20 15:15:10'),
-(188, 1, -1, 'e1b2adc0185d40dc70e2b4c9d814bbf4', 1, 'neymar.santos', 'Neymar Santos', 1, 1, NULL, '2018-06-20 15:15:37', '2018-06-20 15:15:37');
+INSERT INTO `user` (`id`, `enabled`, `force_pass_change`, `password`, `usergroup_id`, `username`, `name`, `workplace_id`, `create_date`, `updated_at`) VALUES
+(1, 1, -1, 'e1b2adc0185d40dc70e2b4c9d814bbf4', 1, 'administrador', 'Administrador | FS', 1, '2018-07-19 13:40:29', '2018-07-23 19:41:14');
 
 -- --------------------------------------------------------
 
@@ -148,8 +133,7 @@ CREATE TABLE `usergroup` (
 --
 
 INSERT INTO `usergroup` (`id`, `description`, `name`, `create_date`, `updated_at`) VALUES
-(1, 'Administrator', 'admin', '2015-10-16 17:53:31', '2018-06-21 12:27:48'),
-(4, 'Teste', 'Testando', '2018-06-21 12:29:09', '2018-06-21 12:29:09');
+(1, 'Administrador', 'administrador', '2018-07-19 12:48:03', '2018-07-19 12:48:03');
 
 -- --------------------------------------------------------
 
@@ -188,22 +172,33 @@ INSERT INTO `usergroup_has_permission` (`usergroup_id`, `permission_id`) VALUES
 (1, 19),
 (1, 20),
 (1, 21),
+(1, 22),
+(1, 23),
 (1, 24),
+(1, 25),
+(1, 26),
 (1, 27),
+(1, 28),
+(1, 29),
 (1, 30),
-(1, 55),
-(1, 58),
-(1, 61),
-(1, 64),
-(1, 65),
-(1, 66),
-(1, 69),
-(1, 70),
-(1, 73),
-(1, 76),
-(1, 77),
-(1, 78),
-(1, 79);
+(1, 31),
+(1, 32),
+(1, 33),
+(1, 34),
+(1, 35),
+(1, 36),
+(1, 37),
+(1, 38),
+(1, 39),
+(1, 40),
+(1, 41),
+(1, 42),
+(1, 43),
+(1, 44),
+(1, 45),
+(1, 46),
+(1, 47),
+(1, 48);
 
 -- --------------------------------------------------------
 
@@ -223,23 +218,11 @@ CREATE TABLE `workplace` (
 --
 
 INSERT INTO `workplace` (`id`, `name`, `create_date`, `updated_at`) VALUES
-(2, 'Tim', '2018-06-20 18:58:23', '2018-06-20 19:13:39'),
-(3, 'Vivo', '2018-06-20 19:00:46', '2018-06-20 19:13:39'),
-(4, 'Claro', '2018-06-20 19:04:06', '2018-06-20 19:13:39'),
-(5, 'Claro', '2018-06-21 10:56:53', '2018-06-21 10:56:53'),
-(6, 'Claro', '2018-06-21 12:17:39', '2018-06-21 12:17:39');
+(1, 'FS', '2018-07-19 12:48:17', '2018-07-19 12:48:17');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `log_user`
---
-ALTER TABLE `log_user`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_log_user_action_date` (`action`,`create_date`),
-  ADD KEY `fk_log_user_user_idx` (`user_id`);
 
 --
 -- Indexes for table `permission`
@@ -255,8 +238,7 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username_UNIQUE` (`username`),
   ADD KEY `FK_user_usergroup_id` (`usergroup_id`),
-  ADD KEY `FK_user_workplace_id_idx` (`workplace_id`),
-  ADD KEY `last_change_password` (`last_change_password`);
+  ADD KEY `FK_user_workplace_id_idx` (`workplace_id`);
 
 --
 -- Indexes for table `usergroup`
@@ -283,39 +265,28 @@ ALTER TABLE `workplace`
 --
 
 --
--- AUTO_INCREMENT for table `log_user`
---
-ALTER TABLE `log_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `usergroup`
 --
 ALTER TABLE `usergroup`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `workplace`
 --
 ALTER TABLE `workplace`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `log_user`
---
-ALTER TABLE `log_user`
-  ADD CONSTRAINT `fk_log_user_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `user`

@@ -48,8 +48,9 @@ class Permissions extends Model{
         $status = false;
 
         try{
-
-            $buscaPermissao = Permissions::where('name', $data['name'])->first();
+            $buscaPermissao = Permissions::orWhere([['name', '=', $data['name']],
+                                                  ['system', '=', $data['system']],
+                                                ])->first();
 
             if($buscaPermissao){       
                 return json_encode(['status' => 'error', 'message' => 'Permissão já existente!']);
