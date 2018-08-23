@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Ago-2018 às 14:45
+-- Generation Time: 23-Ago-2018 às 14:14
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -28,8 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `permission` (
   `id` bigint(20) NOT NULL,
-  `description` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `system` varchar(255) NOT NULL,
+  `uri` varchar(255) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -38,55 +39,64 @@ CREATE TABLE `permission` (
 -- Extraindo dados da tabela `permission`
 --
 
-INSERT INTO `permission` (`id`, `description`, `name`, `create_date`, `updated_at`) VALUES
-(1, 'Dashboard', 'dashboard', '2018-07-19 12:39:50', '2018-07-19 12:39:50'),
-(2, 'Configurações | Listar Empresas', 'listar-empresa', '2018-07-19 12:40:23', '2018-07-19 12:40:23'),
-(3, 'Configurações | Adicionar Empresa', 'inserir-empresa', '2018-07-19 12:40:36', '2018-07-19 12:40:36'),
-(4, 'Configurações | Editar Empresa', 'editar-empresa', '2018-07-19 12:40:44', '2018-07-19 12:40:44'),
-(5, 'Configurações | Remover Empresa', 'remover-empresa', '2018-07-19 12:40:54', '2018-07-19 12:40:54'),
-(6, 'Configurações | Listar Usuário', 'listar-usuario', '2018-07-19 12:41:16', '2018-07-19 12:41:16'),
-(7, 'Configurações | Adicionar Usuário', 'inserir-usuario', '2018-07-19 12:41:34', '2018-07-19 12:41:34'),
-(8, 'Configurações | Editar Usuário', 'editar-usuario', '2018-07-19 12:41:47', '2018-07-19 12:41:47'),
-(9, 'Configurações | Remover Usuário', 'remover-usuario', '2018-07-19 12:42:15', '2018-07-19 12:42:15'),
-(10, 'Configurações | Listar Perfil', 'listar-perfil', '2018-07-19 12:43:55', '2018-07-19 12:43:55'),
-(11, 'Configurações | Adicionar Perfil', 'inserir-perfil', '2018-07-19 12:44:08', '2018-07-19 12:44:08'),
-(12, 'Configurações | Editar Perfil', 'editar-perfil', '2018-07-19 12:44:23', '2018-07-19 12:44:23'),
-(13, 'Configurações | Remover Perfil', 'remover-perfil', '2018-07-19 12:44:38', '2018-07-19 12:44:38'),
-(14, 'Configurações | Listar Permissão', 'listar-permissao', '2018-07-19 12:45:22', '2018-07-19 12:45:22'),
-(15, 'Configurações | Adicionar Permissão', 'inserir-permissao', '2018-07-19 12:45:43', '2018-07-19 12:45:43'),
-(16, 'Configurações | Editar Permissão', 'editar-permissao', '2018-07-19 12:46:07', '2018-07-19 12:46:07'),
-(17, 'Configurações | Remover Permissão', 'remover-permissao', '2018-07-19 12:46:27', '2018-07-19 12:46:27'),
-(18, 'Configurações | Alterar Senha Usuário', 'alterar-senha', '2018-07-19 18:23:51', '2018-07-19 23:24:01'),
-(19, 'Interatividade | Listar Parceiro', 'listar-parceiro', '2018-08-01 17:35:54', '2018-08-01 17:35:54'),
-(20, 'Interatividade | Inserir Parceiro', 'inserir-parceiro', '2018-08-01 17:36:10', '2018-08-01 17:36:10'),
-(21, 'Interatividade | Editar Parceiro', 'editar-parceiro', '2018-08-01 17:36:30', '2018-08-01 17:36:30'),
-(22, 'Interatividade | Remover Parceiro', 'remover-parceiro', '2018-08-01 17:36:48', '2018-08-01 17:36:48'),
-(23, 'Interatividade | Inserir Oferta', 'inserir-oferta', '2018-08-01 19:14:11', '2018-08-01 19:14:11'),
-(24, 'Interatividade | Editar Oferta', 'editar-oferta', '2018-08-01 19:14:25', '2018-08-01 19:14:25'),
-(25, 'Interatividade | Listar Oferta', 'listar-oferta', '2018-08-01 19:14:42', '2018-08-01 19:14:42'),
-(26, 'Interatividade | Remover Oferta', 'remover-oferta', '2018-08-01 19:14:57', '2018-08-01 19:14:57'),
-(27, 'Interatividade | Listar Canal', 'listar-canal', '2018-08-02 11:16:53', '2018-08-02 11:16:53'),
-(28, 'Interatividade | Inserir Canal', 'inserir-canal', '2018-08-02 11:17:11', '2018-08-02 11:17:11'),
-(29, 'Interatividade | Editar Canal', 'editar-canal', '2018-08-02 11:31:17', '2018-08-02 11:31:17'),
-(30, 'Interatividade | Remover Canal', 'remover-canal', '2018-08-02 11:31:29', '2018-08-02 11:31:29'),
-(31, 'Interatividade | Listar Notícia', 'listar-noticia', '2018-08-02 12:25:31', '2018-08-02 12:25:31'),
-(32, 'Interatividade | Inserir Notícia', 'inserir-noticia', '2018-08-02 12:25:48', '2018-08-02 12:25:48'),
-(33, 'Interatividade | Editar Notícia', 'editar-noticia', '2018-08-02 12:26:01', '2018-08-02 12:26:01'),
-(34, 'Interatividade | Remover Notícia', 'remover-noticia', '2018-08-02 12:26:14', '2018-08-02 12:26:14'),
-(35, 'Interatividade | Listar Produto', 'listar-produto', '2018-08-02 13:28:10', '2018-08-02 13:28:10'),
-(36, 'Interatividade | Inserir Produto', 'inserir-produto', '2018-08-02 13:28:24', '2018-08-02 13:28:24'),
-(37, 'Interatividade | Editar Produto', 'editar-produto', '2018-08-02 13:28:52', '2018-08-02 13:28:52'),
-(38, 'Interatividade | Remover Produto', 'remover-produto', '2018-08-02 13:29:19', '2018-08-02 13:29:19'),
-(39, 'Interatividade | Listar Luckynumber', 'listar-luckynumber', '2018-08-02 13:30:14', '2018-08-02 13:30:14'),
-(40, 'Interatividade | Inserir Luckynumber', 'inserir-luckynumber', '2018-08-02 13:30:34', '2018-08-02 13:30:34'),
-(41, 'Interatividade | Editar Luckynumber', 'editar-luckynumber', '2018-08-02 13:30:46', '2018-08-02 13:30:46'),
-(42, 'Interatividade | Remover Luckynumber', 'remover-luckynumber', '2018-08-02 13:30:58', '2018-08-02 13:30:58'),
-(43, 'Interatividade | Listar Fraseologia', 'listar-fraseologia', '2018-08-02 13:31:15', '2018-08-02 13:31:15'),
-(44, 'Interatividade | Inserir Fraseologia', 'inserir-fraseologia', '2018-08-02 13:31:31', '2018-08-02 13:31:31'),
-(45, 'Interatividade | Editar Fraseologia', 'editar-fraseologia', '2018-08-02 13:31:47', '2018-08-02 13:31:47'),
-(46, 'Interatividade | Remover Fraseologia', 'remover-fraseologia', '2018-08-02 13:32:12', '2018-08-02 13:32:12'),
-(47, 'Interatividade | Detalhe Produto', 'detalhe-produto', '2018-08-02 13:43:54', '2018-08-02 13:43:54'),
-(48, 'Interatividade | Publicar Fraseologia', 'publicar-fraseologia', '2018-08-07 19:46:35', '2018-08-07 19:46:35');
+INSERT INTO `permission` (`id`, `name`, `system`, `uri`, `create_date`, `updated_at`) VALUES
+(1, 'dashboard', 'dashboard', 'dashboard', '2018-07-19 12:39:50', '2018-08-21 19:58:37'),
+(2, 'listar-empresa', 'configuracoes', 'empresas', '2018-07-19 12:40:23', '2018-08-21 19:11:36'),
+(3, 'inserir-empresa', 'configuracoes', 'empresas', '2018-07-19 12:40:36', '2018-08-21 19:11:39'),
+(4, 'editar-empresa', 'configuracoes', 'empresas', '2018-07-19 12:40:44', '2018-08-21 19:11:42'),
+(5, 'remover-empresa', 'configuracoes', 'empresas', '2018-07-19 12:40:54', '2018-08-21 19:11:44'),
+(6, 'listar-usuario', 'configuracoes', 'usuarios', '2018-07-19 12:41:16', '2018-08-21 19:11:50'),
+(7, 'inserir-usuario', 'configuracoes', 'usuarios', '2018-07-19 12:41:34', '2018-08-21 19:11:52'),
+(8, 'editar-usuario', 'configuracoes', 'usuarios', '2018-07-19 12:41:47', '2018-08-21 19:11:54'),
+(9, 'remover-usuario', 'configuracoes', 'usuarios', '2018-07-19 12:42:15', '2018-08-21 19:11:56'),
+(10, 'listar-perfil', 'configuracoes', 'perfil', '2018-07-19 12:43:55', '2018-08-21 19:12:03'),
+(11, 'inserir-perfil', 'configuracoes', 'perfil', '2018-07-19 12:44:08', '2018-08-21 19:12:05'),
+(12, 'editar-perfil', 'configuracoes', 'perfil', '2018-07-19 12:44:23', '2018-08-21 19:12:06'),
+(13, 'remover-perfil', 'configuracoes', 'perfil', '2018-07-19 12:44:38', '2018-08-21 19:12:08'),
+(14, 'listar-permissao', 'configuracoes', 'permissoes', '2018-07-19 12:45:22', '2018-08-21 19:12:22'),
+(15, 'inserir-permissao', 'configuracoes', 'permissoes', '2018-07-19 12:45:43', '2018-08-21 19:12:26'),
+(16, 'editar-permissao', 'configuracoes', 'permissoes', '2018-07-19 12:46:07', '2018-08-21 19:12:29'),
+(17, 'remover-permissao', 'configuracoes', 'permissoes', '2018-07-19 12:46:27', '2018-08-21 19:12:31'),
+(18, 'alterar-senha', 'configuracoes', 'usuarios', '2018-07-19 18:23:51', '2018-08-21 19:12:35'),
+(19, 'listar-parceiro', 'interatividade', 'parceiros', '2018-08-01 17:35:54', '2018-08-21 19:14:54'),
+(20, 'inserir-parceiro', 'interatividade', 'parceiros', '2018-08-01 17:36:10', '2018-08-21 19:14:58'),
+(21, 'editar-parceiro', 'interatividade', 'parceiros', '2018-08-01 17:36:30', '2018-08-21 19:15:00'),
+(22, 'remover-parceiro', 'interatividade', 'parceiros', '2018-08-01 17:36:48', '2018-08-21 19:15:02'),
+(23, 'inserir-oferta', 'interatividade', 'ofertas', '2018-08-01 19:14:11', '2018-08-21 19:15:07'),
+(24, 'editar-oferta', 'interatividade', 'ofertas', '2018-08-01 19:14:25', '2018-08-21 19:15:10'),
+(25, 'listar-oferta', 'interatividade', 'ofertas', '2018-08-01 19:14:42', '2018-08-21 19:15:12'),
+(26, 'remover-oferta', 'interatividade', 'ofertas', '2018-08-01 19:14:57', '2018-08-21 19:15:13'),
+(27, 'listar-canal', 'interatividade', 'canais', '2018-08-02 11:16:53', '2018-08-21 19:15:17'),
+(28, 'inserir-canal', 'interatividade', 'canais', '2018-08-02 11:17:11', '2018-08-21 19:15:22'),
+(29, 'editar-canal', 'interatividade', 'canais', '2018-08-02 11:31:17', '2018-08-21 19:15:24'),
+(30, 'remover-canal', 'interatividade', 'canais', '2018-08-02 11:31:29', '2018-08-21 19:15:27'),
+(31, 'listar-noticia', 'interatividade', 'noticias', '2018-08-02 12:25:31', '2018-08-21 19:15:36'),
+(32, 'inserir-noticia', 'interatividade', 'noticias', '2018-08-02 12:25:48', '2018-08-21 19:15:38'),
+(33, 'editar-noticia', 'interatividade', 'noticias', '2018-08-02 12:26:01', '2018-08-21 19:15:40'),
+(34, 'remover-noticia', 'interatividade', 'noticias', '2018-08-02 12:26:14', '2018-08-21 19:15:43'),
+(35, 'listar-produto', 'interatividade', 'produtos', '2018-08-02 13:28:10', '2018-08-21 19:15:48'),
+(36, 'inserir-produto', 'interatividade', 'produtos', '2018-08-02 13:28:24', '2018-08-21 19:15:50'),
+(37, 'editar-produto', 'interatividade', 'produtos', '2018-08-02 13:28:52', '2018-08-21 19:15:52'),
+(38, 'remover-produto', 'interatividade', 'produtos', '2018-08-02 13:29:19', '2018-08-21 19:15:54'),
+(39, 'listar-luckynumber', 'interatividade', 'luckynumber', '2018-08-02 13:30:14', '2018-08-21 19:16:02'),
+(40, 'inserir-luckynumber', 'interatividade', 'luckynumber', '2018-08-02 13:30:34', '2018-08-21 19:16:05'),
+(41, 'editar-luckynumber', 'interatividade', 'luckynumber', '2018-08-02 13:30:46', '2018-08-21 19:16:07'),
+(42, 'remover-luckynumber', 'interatividade', 'luckynumber', '2018-08-02 13:30:58', '2018-08-21 19:16:09'),
+(43, 'listar-fraseologia', 'interatividade', 'fraseologias', '2018-08-02 13:31:15', '2018-08-21 19:16:15'),
+(44, 'inserir-fraseologia', 'interatividade', 'fraseologias', '2018-08-02 13:31:31', '2018-08-21 19:16:17'),
+(45, 'editar-fraseologia', 'interatividade', 'fraseologias', '2018-08-02 13:31:47', '2018-08-21 19:16:19'),
+(46, 'remover-fraseologia', 'interatividade', 'fraseologias', '2018-08-02 13:32:12', '2018-08-21 19:16:21'),
+(47, 'detalhe-produto', 'interatividade', 'produtos', '2018-08-02 13:43:54', '2018-08-21 19:16:27'),
+(48, 'publicar-fraseologia', 'interatividade', 'fraseologias', '2018-08-07 19:46:35', '2018-08-21 19:16:31'),
+(49, 'importar-noticia', 'interatividade', 'noticias', '2018-08-17 19:21:16', '2018-08-21 19:16:36'),
+(50, 'listar-consumer', 'campanhas', 'consumers', '2018-08-20 17:42:00', '2018-08-21 19:16:43'),
+(51, 'inserir-consumer', 'campanhas', 'consumers', '2018-08-20 17:42:29', '2018-08-21 19:17:23'),
+(52, 'editar-consumer', 'campanhas', 'consumers', '2018-08-20 17:42:54', '2018-08-21 19:17:26'),
+(53, 'remover-consumer', 'campanhas', 'consumers', '2018-08-20 17:43:23', '2018-08-21 19:17:27'),
+(54, 'listar-acao', 'campanhas', 'acoes', '2018-08-21 13:19:29', '2018-08-21 19:17:36'),
+(55, 'inserir-acao', 'campanhas', 'acoes', '2018-08-21 13:19:43', '2018-08-21 19:17:38'),
+(56, 'editar-acao', 'campanhas', 'acoes', '2018-08-21 13:20:06', '2018-08-21 19:17:40'),
+(57, 'remover-acao', 'campanhas', 'acoes', '2018-08-21 13:20:29', '2018-08-21 19:17:42');
 
 -- --------------------------------------------------------
 
@@ -198,7 +208,16 @@ INSERT INTO `usergroup_has_permission` (`usergroup_id`, `permission_id`) VALUES
 (1, 45),
 (1, 46),
 (1, 47),
-(1, 48);
+(1, 48),
+(1, 49),
+(1, 50),
+(1, 51),
+(1, 52),
+(1, 53),
+(1, 54),
+(1, 55),
+(1, 56),
+(1, 57);
 
 -- --------------------------------------------------------
 
@@ -229,7 +248,8 @@ INSERT INTO `workplace` (`id`, `name`, `create_date`, `updated_at`) VALUES
 --
 ALTER TABLE `permission`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD KEY `name_2` (`name`),
+  ADD KEY `name_3` (`name`);
 
 --
 -- Indexes for table `user`
@@ -268,7 +288,7 @@ ALTER TABLE `workplace`
 -- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `user`
 --
@@ -278,7 +298,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `usergroup`
 --
 ALTER TABLE `usergroup`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `workplace`
 --
